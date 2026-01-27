@@ -1,0 +1,30 @@
+# OS / Editor
+.DS_Store
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Python venv / cache
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Node / tooling
+node_modules/
+dist/
+
+# Logs
+*.log
+
+# Runtime output (artifacts, runs)
+output/
+
+# Local env
+.env
+setup/.env
+
+# Local settings
+/.python-version
+/.claude/settings.local.json

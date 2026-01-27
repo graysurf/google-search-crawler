@@ -1,0 +1,31 @@
+[tool.ruff]
+target-version = "py310"
+line-length = 120
+extend-exclude = ["output"]
+
+[tool.ruff.lint]
+select = ["E", "F", "B"]
+ignore = ["E501"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
+
+[tool.mypy]
+python_version = "3.10"
+warn_unused_configs = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_unreachable = true
+strict_equality = true
+ignore_missing_imports = true
+disallow_untyped_defs = false
+check_untyped_defs = true
+no_implicit_optional = true
+files = ["google_search_crawler", "tests"]
+
+[[tool.mypy.overrides]]
+module = ["google_search_crawler.legacy"]
+ignore_errors = true
