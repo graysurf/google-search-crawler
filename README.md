@@ -25,8 +25,8 @@ Google Search Crawler is a small crawl pipeline that:
 ├── docs/                       # Project docs
 ├── output/                     # Generated run artifacts (gitignored)
 ├── .envrc                      # Optional: direnv helpers for local env
-├── requirements.txt            # Runtime dependencies
-└── requirements-dev.txt        # Dev dependencies
+├── pyproject.toml              # Project metadata, tool config, and dependencies
+└── uv.lock                     # Locked Python dependencies
 ```
 
 ## Requirements
@@ -37,9 +37,7 @@ Google Search Crawler is a small crawl pipeline that:
 ## Setup
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt -r requirements-dev.txt
+uv sync --locked
 ```
 
 ## Configure environment
@@ -148,8 +146,8 @@ curl -s 'http://127.0.0.1:8000/articles?keyword=%22%E6%9F%AF%E6%96%87%E5%93%B2%2
 ## Dev checks
 
 ```bash
-ruff check .
-ruff format .
-mypy
-pytest -m smoke
+uv run --locked ruff check .
+uv run --locked ruff format .
+uv run --locked mypy
+uv run --locked pytest -m smoke
 ```
